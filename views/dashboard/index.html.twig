@@ -1,0 +1,88 @@
+{% extends 'shared/dashboard.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12 d-flex">
+            <h3 class="font-weight-bold">Overview Dashboard</h3>
+            <div class="ml-auto d-none d-md-inline-block">
+                <a class="btn btn-primary mx-1" href="/vehicles/create" tooltip="Add a new vehicle to your fleet">New
+                    car</a>
+                <a class="btn btn-primary mx-1" href="/vehicles/create" tooltip="View bookings(3 new)">
+                    Bookings
+                    <span class="badge badge-pill badge-light">3</span>
+                </a>
+                <a class="btn btn-primary mx-1" href="/" tooltip="Open homepage">Homepage</a>
+            </div>
+        </div>
+        <div class="p-1 bg-primary col-md-6 my-4 mx-3"></div>
+        <div class="row col-md-12 no-gutters">
+            <div class="col-md-12 py-2">
+                <h4 class="font-weight-bold">Vehicle Statistics</h4>
+            </div>
+            {% if bestCar %}
+                <div class="col-md-3">
+                    <div class="card m-1">
+                        <img class="card-img-top img-cover" height="150"
+                             src="{{ optImg(bestCar.VehicleImages[0].image ?? '/assets/img/placeholder_car.png', 50) }}"
+                             alt="">
+                        <div class="card-body">
+                            <small>Most requested vehicle</small>
+                            <h4 class="card-title">{{ bestCar.name }}</h4>
+                            <div class="card-text">{{ bestCar.description|take(80) }}</div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="col-md-4">
+                <div class="card card-body m-1">
+                    <h3 class="card-title">Newest requests</h3>
+                    <div class="list-group list-group-flush">
+                        {% for booking in bookings %}
+                            <a href="/bookings/read/{{ booking.id }}" class="list-group-item list-group-item-action">
+                                <h6>{{ booking.clientName }} ({{ booking.Vehicle.name }} {{ boooking.Vehicle.model }}
+                                    )</h6>
+                                <small>{{ booking.pickUpDate }} - {{ booking.dropOffDate }}</small>
+                            </a>
+                        {% endfor %}
+                        <a href="/bookings/new/audi-msi-3000" class="list-group-item list-group-item-action">
+                            <h6>View more</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card card-body m-1">
+                    <h3 class="card-title">Booking trend</h3>
+                </div>
+            </div>
+        </div>
+        <hr class="col-md-11 my-5"/>
+        <div class="row col-md-12 no-gutters">
+            <div class="col-md-12 py-2">
+                <h4 class="font-weight-bold">Vehicle Category Statistics</h4>
+            </div>
+            <div class="col-md-3">
+                <div class="card m-1">
+                    <img class="card-img-top" src="/assets/img/car.jpg" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Category on demand</h4>
+                        <div class="card-text">Trucks</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-body m-1">
+                    <h3 class="card-title">Newest requests</h3>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card card-body m-1">
+                    <h3 class="card-title">Booking trend</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

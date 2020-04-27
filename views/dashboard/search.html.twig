@@ -1,0 +1,131 @@
+{% extends 'shared/dashboard.html.twig' %}
+
+{% block title %}Search for "{{ request.query.sk }}"{% endblock %}
+
+{% block styles %}
+    <style>
+        .list-group {
+            max-height: 500px;
+            overflow: hidden auto;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="row flex-row-reverse">
+        <div class="col-md-5 my-4">
+            <div class="card card-body">
+                <h3 class="font-weight-bold mb-4 ml-4">Search navigation</h3>
+                <div class="d-flex flex-wrap align-items-center">
+                    <a class="btn btn-light m-2 radius px-4" href="#cars" tooltip="Vehicle results">
+                        Vehicles <span class="badge badge-pill badge-dark">{{ cars|length }}</span>
+                    </a>
+                    <a class="btn btn-light m-2 radius px-4" href="#clients" tooltip="Clients results">
+                        Clients <span class="badge badge-pill badge-dark">{{ clients|length }}</span>
+                    </a>
+                    <a class="btn btn-light m-2 radius px-4" href="#categories" tooltip="Categories results">
+                        Vehicles Categories <span class="badge badge-pill badge-dark">{{ categories|length }}</span>
+                    </a>
+                    <a class="btn btn-light m-2 radius px-4" href="#brands" tooltip="Brands results">
+                        Vehicles Brands <span class="badge badge-pill badge-dark">{{ brands|length }}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7 my-4">
+            <div class="card-body">
+                <h3 class="font-weight-bold mb-4">Search result</h3>
+                {% if cars %}
+                    <div id="cars" class="card card-body radius">
+                        <h5 class="card-title">Vehicles</h5>
+                        <div class="list-group list-group-flush">
+                            {% for car in cars %}
+                                <a href="/vehicles/read/{{ car.id }}"
+                                   class="list-group-item-action list-group-item d-flex flex-column">
+                                    <div class="font-weight-bold">{{ car.name }} - {{ car.model }}</div>
+                                    <small class="text-italic text-muted">{{ car.description }}</small>
+                                </a>
+                            {% else %}
+                                <div class="list-group-item">
+                                    No vehicles found
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <p class="card-body">No cars found</p>
+                {% endif %}
+                {% if clients %}
+                    <div id="clients" class="card card-body radius my-4">
+                        <h5 class="card-title">Clients</h5>
+                        <div class="list-group list-group-flush">
+                            {% for client in clients %}
+                                <a href="/users/read/{{ client.id }}"
+                                   class="list-group-item-action list-group-item d-flex flex-column">
+                                    <div class="font-weight-bold">{{ client.name }} - {{ client.email }}</div>
+                                    <small class="text-italic text-muted">{{ car.notes }}</small>
+                                </a>
+                            {% else %}
+                                <div class="list-group-item">
+                                    No clients found
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <p class="card-body">No clients found</p>
+                {% endif %}
+                {% if categories %}
+                    <div id="categories" class="card card-body radius my-4">
+                        <h5 class="card-title">Vehicle Categories</h5>
+                        <div class="list-group list-group-flush">
+                            {% for category in categories %}
+                                <a href="/vehicle-categories/read/{{ category.id }}"
+                                   class="list-group-item-action list-group-item d-flex align-items-center">
+                                    <img src="{{ optImg(category.image, 30) }}" alt="" height="50" width="50"
+                                         class="rounded-circle img-contain border">
+                                    <div class="col">
+                                        <div class="font-weight-bold">{{ category.name }}</div>
+                                        <p class="text-truncate mb-0 mr-4">{{ category.description }}</p>
+                                        <small class="text-italic text-muted">Date added
+                                            - {{ category.createdAt }}</small>
+                                    </div>
+                                </a>
+                            {% else %}
+                                <div class="list-group-item">
+                                    No categories found
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <p class="card-body">No categories found</p>
+                {% endif %}
+                {% if brands %}
+                    <div id="brands" class="card card-body radius my-4">
+                        <h5 class="card-title">Vehicle Brands</h5>
+                        <div class="list-group list-group-flush">
+                            {% for brand in brands %}
+                                <a href="/vehicle-brands/read/{{ brand.id }}"
+                                   class="list-group-item-action list-group-item d-flex align-items-center">
+                                    <img src="{{ optImg(brand.image, 30) }}" alt="" height="50" width="50"
+                                         class="rounded-circle img-contain border">
+                                    <div class="col">
+                                        <div class="font-weight-bold">{{ brand.name }}</div>
+                                        <small class="text-italic text-muted">Date added - {{ brand.createdAt }}</small>
+                                    </div>
+                                </a>
+                            {% else %}
+                                <div class="list-group-item">
+                                    No brands found
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <p class="card-body">No brands found</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

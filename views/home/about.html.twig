@@ -1,0 +1,69 @@
+{% extends 'shared/layout.html.twig' %}
+
+{# Dynamic page title #}
+{% block title %}About{% endblock %}
+
+{% block body %}
+    {# page-banner-section
+        ================================================== #}
+    <section class="page-banner-section">
+        <div class="container-fluid">
+            <h1>About</h1>
+            <p>More information</p>
+        </div>
+    </section>
+    {# End page-banner section #}
+
+    {# about-section
+        ================================================== #}
+    <section class="about-section">
+        <div class="container-fluid">
+            <div class="about-box">
+                <div class="image-holder">
+                    <img src="/assets/upload/others/ab1.jpg" alt="">
+                </div>
+                <div class="content-holder">
+                    <h1>Who am I</h1>
+                    <span>Hermit Muyambo is a self-taught artist, Born in Mutare on the 19th of March 1976.</span>
+                    <p>
+                        He discovered art at a very young age and nurtured his passion. Growing up in the eastern highlands of Zimbabwe, there were a number of platforms for young people to exhibit their artworks such as the Agricultural Show, Mutare Museum and various competitions. Continually emerging as a victor on these platforms fuelled Hermit’s deep-rooted desire to pursue art. This is a unique profound talent because art was not a subject taught at the primary and secondary schools he attended.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {# End about section #}
+
+    {# statistic-section
+        ================================================== #}
+    <section class="statistic-section">
+        <div class="container-fluid">
+            <div class="statistic-box">
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="statistic-post">
+                            <i class="la la-rocket"></i>
+                            <h2><span class="timer" data-from="0" data-to="{{ projects }}"></span>+</h2>
+                            <p>My awesome projects</p>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-xs-6">
+                        <article>
+                            <p>
+                                In the years following of his schooling Hermit established himself as an automotive engineer and later went into procurement and management. These career paths did not prosper since they left a void in him that they could not fill.
+                            </p>
+                            <p>
+                                In December 2008, Hermit threw caution to the wind and established himself as a full-time artist. His love for people, their expressions, traditions,cultures and nature inspires the artwork in which he now excels in. Hermit does realism with a pinch of creative exploration. In his portraiture, he manages to capture the beauty and character of living beings, human and otherwise. Hermit is drawn to that which is happy, peaceful and light. These are conversations he creates between himself and the audience. These conversations lessen the artistic, visual and emotional gap between the audience and his artwork. Hermit excels in the use of pencil, charcoal, pastel chalk and oil paints as his medium of choice.
+                            </p>
+                            <p>
+                                Hermit has been an exhibiting artist since 2009. He has held exhibitions several group exhibitions and three solo exhibitions in both Zimbabwe and South Africa. Apart from selling regionally, his work has sold in Europe as well.
+                                Hermit is based in Borrowdale Harare where he runs his studio (The Creative Hub) and also teaches art.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {# End statistic section #}
+{% endblock %}

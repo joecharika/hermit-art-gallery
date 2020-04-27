@@ -1,0 +1,202 @@
+{% compress %}
+    <!DOCTYPE html>
+    <html lang="en" class="no-js">
+    <head>
+        <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Favicon-->
+        <link rel="shortcut icon" href="/assets/img/logo.png">
+        <!-- Author Meta -->
+        <meta name="author" content="starlight">
+        <!-- Meta Description -->
+        <meta name="description" content="Essential Car Hire">
+        <!-- Meta Keyword -->
+        <meta name="keywords" content="car rental, car booking, rent a car, rent, book, car, car service">
+        <!-- meta character set -->
+        <meta charset="UTF-8">
+        <!-- Site Title -->
+        <title>{% block title %}{% endblock %} - Essential Car Hire (Dashboard)</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+        <!-- CSS ============================================= -->
+        <link rel="stylesheet" href="/assets/css/vendor.min.css">
+        <link rel="stylesheet" href="/assets/css/loose/magnific-popup.min.css">
+        <link rel="stylesheet" href="/assets/css/loose/nice-select.min.css">
+        <link rel="stylesheet" href="/assets/css/loose/animate.min.css">
+        <link rel="stylesheet" href="/assets/css/loose/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/assets/css/loose/owl.carousel.min.css">
+        <link rel="stylesheet" href="/assets/css/loose/jquery.cleditor.min.css">
+        <link rel="stylesheet" href="/assets/css/custom.min.css">
+        {% block styles %}{% endblock %}
+    </head>
+    <body>
+    <main>
+        <nav class="navbar navbar-light bg-white">
+            <div class="container py-2">
+                <a class="navbar-brand mr-auto">
+                    <img src="/assets/img/logo.png" height="40" alt=""/>
+                </a>
+                <form action="/dashboard/search" class="form-inline d-none d-md-inline-block">
+                    <div class="input-group radius">
+                        <div class="input-group-prepend border-right-0">
+                            <span class="input-group-text radius-left bg-white" id="basic-add-on">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                        <input required minlength="3" name="sk" type="text" class="form-control border-left-0"
+                               placeholder="Search clients, cars..."
+                               aria-label="Search" aria-describedby="basic-add-on" value="{{ request.query.sk }}"/>
+                        <div class="input-group-append">
+                            <button type="submit" class="input-group-addon radius-right btn btn-primary"
+                                    id="basic-addon1">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <a class="nav-link dropdown-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false"
+                   popover="#user">
+                    <img src="{{ optImg(user.image, 30) }}" height="40" width="40" alt=""
+                         class="rounded-circle img-cover"/>
+                </a>
+                <div id="user" class="d-none">
+                    <div class="d-flex align-items-center">
+                        <img src="{{ optImg(user.image, 30) }}" height="40" width="40" alt=""
+                             class="m-3 rounded-circle img-cover"/>
+                        <div>
+                            <h5 class="card-title">{{ user.name ~ ' ' ~ user.otherNames ~ ' ' ~ user.lastName }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ user.username ?? user.email }}</h6>
+                        </div>
+                    </div>
+                    <p class="card-text">
+                        {{ user.notes }}
+                    </p>
+                    <div class="card-footer bg-transparent">
+                        <a href="/auth/profile" class="card-link btn_1">My profile
+                        </a>
+                        <a href="/auth/sign-out" class="card-link btn_1">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-primary shadow-sm align-items-center">
+            <div class="container">
+                <a class="btn btn-primary" tooltip="Go back" href="{{ request.previousUrl }}">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarToggler"
+                        aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-align-left"></span>
+                </button>
+                <div class="collapse navbar-collapse bg-primary ml-auto px-4" id="navbarToggler">
+                    <ul class="navbar-nav w-100">
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/dashboard">
+                                <i class="fa fa-dashboard"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">
+                                <i class="fa fa-address-card"></i>
+                                Clients
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                               aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-hashtag"></i>
+                                Bookings
+                            </a>
+                            <div class="dropdown-menu shadow-lg">
+                                <a class="dropdown-item" href="/bookings/new">New requests</a>
+                                <a class="dropdown-item" href="/bookings">All bookings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/zones">PickUp/DropOff zones</a>
+                                <a class="dropdown-item" href="/newsletters">Newsletter subscriptions</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                               aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-car"></i>
+                                Vehicle Fleet
+                            </a>
+                            <div class="dropdown-menu shadow-lg">
+                                <a class="dropdown-item" href="/vehicles">Vehicles</a>
+                                <a class="dropdown-item" href="/vehicle-brands">Vehicle brands</a>
+                                <a class="dropdown-item" href="/vehicle-categories">Vehicle categories</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/vehicles/create">Add a vehicle</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">
+                                <i class="fa fa-globe"></i>
+                                Generic Site
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-transparent text-white mb-0">
+                        <li class="breadcrumb-item text-white">
+                            <a class="text-white" href="/dashboard">Dashboard Portal</a>
+                        </li>
+                        {% if request.path != '/dashboard' %}
+                            <li class="breadcrumb-item active text-white" aria-current="page">
+                                {{ block('title') }}
+                            </li>
+                        {% endif %}
+                    </ol>
+                </nav>
+            </div>
+        </nav>
+        <div class="main bg-light">
+            <div class="container py-5">
+                {% if notification.message %}
+                    <div class="alert alert-{{ notification.messageType }} alert-dismissible col-md-7 mx-auto d-flex align-items-center p-2">
+                        <i class="fa fa-info rounded-circle bg-{{ notification.messageType }} m-2 text-center p-2"
+                           style="height: 30px; width: 30px;"></i>
+                        <div class="px-2 d-inline-block mr-auto">{{ notification.message }}</div>
+                        {% if notification.action %}
+                            <a class="m-2 btn btn-{{ notification.messageType }} px-4"
+                               href="{{ notification.action }}"
+                            >Proceed</a>
+                        {% endif %}
+
+                        <button class="btn bg-transparent text-{{ notification.messageType }}" data-dismiss="alert">
+                            <i class="fa fa-close"></i>
+                        </button>
+                    </div>
+                {% endif %}
+                {% block body %}{% endblock %}
+            </div>
+            <footer></footer>
+        </div>
+
+    </main>
+
+
+    <script src="/assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.datetimepicker.full.min.js"></script>
+    <script src="/assets/js/easing.min.js"></script>
+    <script src="/assets/js/hoverIntent.min.js"></script>
+    <script src="/assets/js/superfish.min.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/jquery.sticky.min.js"></script>
+    <script src="/assets/js/jquery.nice-select.min.js"></script>
+    <script src="/assets/js/waypoints.min.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/parallax.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.cleditor.min.js"></script>
+    <script src="/assets/js/main.min.js"></script>
+    </body>
+    </html>
+
+{% endcompress %}

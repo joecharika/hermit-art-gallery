@@ -1,0 +1,86 @@
+{% extends 'shared/dashboard.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <div class="card card-body radius">
+        <div class="table-responsive">
+            <div class="d-flex align-items-center flex-wrap mb-4">
+                <div class="mr-auto">
+                    <h3>{{ title }}</h3>
+                    {% if request.query.sk %}
+                        <small>{{ model|length }} results found for "{{ request.query.sk }}"</small>
+                    {% endif %}
+                </div>
+
+                <form action="" class="input-group col-md-4 col-lg-3 m-1">
+                    <input value="{{ request.query.sk }}" name="sk" required minlength="3"
+                           class="form-control radius-left" placeholder="Search">
+                    <div class="input-group-append">
+                        <button type="submit" tooltip="Search" class="btn btn-primary input-group-addon radius-right"><i
+                                    class="fa fa-search"></i></button>
+                    </div>
+                </form>
+                <a class="btn btn-primary radius px-4 m-1" href="/{{ route.realController }}/create">Add new</a>
+            </div>
+            <table class="table">
+                <tr>
+                    {% for prop in headings|where((p) => p == 'image') %}
+                        <th>{{ prop|capitalize }}</th>
+                    {% endfor %}
+                    {% for prop in headings|where((p) => p != 'image') %}
+                        <th>{{ prop|capitalize }}</th>
+                    {% endfor %}
+                    <th>Last modified</th>
+                    <th></th>
+                </tr>
+                {% for i in model %}
+                    {% set item = i|toArray %}
+                    <tr>
+                        {% for prop in headings|where((p) => p == 'image') %}
+                            <td>
+                                <img src="{{ optImg(item[prop],30) }}" class="img-thumbnail"
+                                     style="height: 70px; width: 70px;object-fit: contain"
+                                     alt="{{ item.name }} image">
+                            </td>
+                        {% endfor %}
+                        {% for prop in headings|where((p) => p != 'image') %}
+                            <td>{{ item[prop] }}</td>
+                        {% endfor %}
+                        <td>
+                            {{ (item.updated ?? item.created) |date('g:i:s A M d, Y') }} by {{ item.user ?? 'system' }}
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <a class="nav-link text-nowrap dropdown-toggle" data-toggle="dropdown" href="#"
+                                   role="button"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-v mx-2"></i>
+                                    Actions
+                                </a>
+                                <div class="dropdown-menu shadow-lg">
+                                    <a class="dropdown-item" href="/{{ route.realController }}/edit/{{ item.id }}"
+                                       tooltip="Edit">
+                                        <i class="fa fa-pencil mx-1"></i>Edit
+                                    </a>
+                                    <a class="dropdown-item" href="/{{ route.realController }}/read/{{ item.id }}"
+                                       tooltip="View details">
+                                        <i class="fa fa-info mx-1"></i>View
+                                    </a>
+                                    <a class="dropdown-item" href="/{{ route.realController }}/delete/{{ item.id }}"
+                                       tooltip="Delete">
+                                        <i class="fa fa-trash mx-1"></i>Delete
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    {% block actions %}{% endblock %}
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+{% endblock %}

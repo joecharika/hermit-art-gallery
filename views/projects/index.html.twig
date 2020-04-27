@@ -1,0 +1,51 @@
+{% extends 'shared/layout.html.twig' %}
+{% block title %}Projects{% endblock %}
+{% block body %}
+
+    <!-- page-banner-section
+        ================================================== -->
+    <section class="page-banner-section">
+        <div class="container-fluid">
+            <h1>
+                Our Works
+                <span>({{ model|length }} Total)</span>
+            </h1>
+        </div>
+    </section>
+    <!-- End page-banner section -->
+
+    <!-- portfolio-section
+        ================================================== -->
+    <section class="portfolio-section">
+        <div class="container-fluid">
+
+            {% if view == 'normal' and user %}
+                <ul class="filter">
+                    <li><a href="/projects/create">Add new</a></li>
+{#                    <li><a href="/projects/recycle">Recycle bin</a></li>#}
+                    <li><a href="/projects?view=guest">View as guest</a></li>
+                </ul>
+            {% endif %}
+
+            <div class="portfolio-box iso-call colum-3 no-space">
+                {% for project in model %}
+                    <div class="item project-post lifestyle photography">
+                        <div class="project-gal">
+                            <img src="{{ optImg(project.projectImages[0].image ?? '/assets/images/placeholder.png' , 50) }}"
+                                 alt="">
+                            <div class="hover-text showen-text">
+                                <p>
+                                    <a href="/projects/details/{{ project.id }}">{{ project.projectImages | length }}
+                                        images&nbsp;</a>
+                                </p>
+                                <h2><a href="/projects/details/{{ project.id }}">{{ project.title }}</a></h2>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- End portfolio section -->
+
+{% endblock %}

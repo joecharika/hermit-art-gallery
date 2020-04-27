@@ -1,0 +1,175 @@
+{% compress %}
+    <!doctype html>
+
+
+    <html lang="en" class="no-js">
+
+    <head>
+        <title>Daxon - {% block title %}{% endblock %}</title>
+
+        <meta charset="utf-8">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" href="/assets/css/daxon-assets.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ css('style') }}">
+
+    </head>
+    <body>
+
+    <!-- Container -->
+    <div id="container">
+        <!-- Header
+            ================================================== -->
+        <header class="clearfix">
+
+            <div class="logo">
+                <a href="/"><img src="/assets/images/logo.png" alt=""></a>
+            </div>
+
+            <nav class="nav-menu">
+                <ul class="menu-list">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/projects">Our works</a></li>
+                    <li><a href="/home/about-us">About Us</a></li>
+                    <li><a href="/home/contact-us">Get in touch</a></li>
+                </ul>
+            </nav>
+
+            <p>
+                © 2019 Daxon. <br>All rights reserved. <br>
+                Made by <a href="//hyper.starlight.co.zw" target="_blank"><span>hyper</span></a>
+                from <a href="//starlight.co.zw" target="_blank"><span>Starlight</span></a>
+            </p>
+
+            <a class="menu-toggle" href="#"><i class="la la-list-ul"></i></a>
+
+        </header>
+        <!-- End Header -->
+
+        <!-- switcher-box -->
+        <div class="switcher-box">
+            <ul class="switcher-list">
+                {% if user %}
+                    <li><a class="" href="/auth/profile"><i class="la la-user"></i> {{ user }}</a></li>
+                {% else %}
+                    <li><a class="" href="/auth/sign-in"><i class="la la-user"></i> Sign in</a></li>
+                {% endif %}
+                <li><a class="toggle-dark" href="#"><i class="la la-adjust"></i></a></li>
+                <li><a class="toggle-shopping" href="#"><i class="la la-shopping-cart"></i> <span>2</span></a></li>
+                <li><a class="toggle-sidebar" href="#"><i class="la la-reorder"></i></a></li>
+            </ul>
+        </div>
+        <!-- end switcher-box -->
+
+        <!-- content
+            ================================================== -->
+        <div id="content">
+            {% block body %}{% endblock %}
+        </div>
+        <!-- End content -->
+
+{#        <div class="shopping-popup">#}
+{#            <ul class="shopping-list">#}
+{#                <li>#}
+{#                    <img src="/assets/upload/shop/th1.jpg" alt="">#}
+{#                    <div class="side-content">#}
+{#                        <h2><a href="single-post.html">Aliquam tincidunt mauris eu risus.</a></h2>#}
+{#                        <span>139.99</span>#}
+{#                    </div>#}
+{#                    <a href="#" class="delete-art"><i class="la la-close"></i></a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <img src="/assets/upload/shop/th2.jpg" alt="">#}
+{#                    <div class="side-content">#}
+{#                        <h2><a href="single-post.html">Cras iaculis ultricies nulla</a></h2>#}
+{#                        <span>59.99</span>#}
+{#                    </div>#}
+{#                    <a href="#" class="delete-art"><i class="la la-close"></i></a>#}
+{#                </li>#}
+{#            </ul>#}
+{#            <div class="total-box">#}
+{#                <p>Subtotal: <span>199.98</span></p>#}
+{#                <a href="#" class="btn-default btn-dark">Checkout</a>#}
+{#                <a href="#" class="view-cart">View Cart</a>#}
+{#            </div>#}
+{#        </div>#}
+
+        <!-- fixed-sidebar-right -->
+        <div id="fixed-sidebar">
+
+            <div class="about-widget side-widget">
+                <h2>What we do</h2>
+                <p>We provide a set of digital marketing services tailored to fulfil your business goals.</p>
+            </div>
+
+            <div class="instagram-widget side-widget">
+                <h2>Instagram Feed</h2>
+                <ul class="instagram-list">
+                    <li><a href="#"><img src="/assets/upload/instagram/1.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="/assets/upload/instagram/2.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="/assets/upload/instagram/3.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="/assets/upload/instagram/4.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="/assets/upload/instagram/5.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="/assets/upload/instagram/6.jpg" alt=""></a></li>
+                </ul>
+            </div>
+
+            <div class="subscribe-widget side-widget">
+                <h2>Subscribe to newsletter</h2>
+                <form class="subscribe-form">
+                    <input type="text" name="email-subscribe" id="email-subscribe" placeholder="your email address"/>
+                    <button type="submit"><i class="la la-arrow-circle-right"></i></button>
+                </form>
+            </div>
+
+            <div class="social-widget side-widget">
+                <h2>Contact us</h2>
+                <ul class="contact-info">
+                    <li>
+                        <i class="la la-phone"></i>
+                        <p>
+                            <span>+88 (0) 101 2386 000</span>
+                            <span>+88 (0) 202 0000 001</span>
+                        </p>
+                    </li>
+                    <li>
+                        <i class="la la-envelope"></i>
+                        <p>
+                            youremail@yourdomain.com
+                        </p>
+                    </li>
+                    <li>
+                        <i class="la la-map-marker"></i>
+                        <p>
+                            198 West 21th Street, Suite 721 <br> New York, NY 10010
+                        </p>
+                    </li>
+                </ul>
+                <ul class="social-icons">
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
+                </ul>
+            </div>
+
+            <a class="close-fixed-sidebar" href="#"><i class="la la-close"></i></a>
+
+        </div>
+
+    </div>
+    <!-- End Container -->
+
+    <script src="/assets/js/daxon-plugins.min.js"></script>
+    <script src="/assets/js/jquery.countTo.js"></script>
+    {#    <script src="http://maps.google.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&amp;sensor=false&amp;language=en"></script>#}
+    {#    <script src="/assets/js/gmap3.min.js"></script>#}
+    <script src="/assets/js/script.js"></script>
+
+    </body>
+
+    </html>
+{% endcompress %}

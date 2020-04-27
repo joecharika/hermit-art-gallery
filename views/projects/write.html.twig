@@ -1,0 +1,33 @@
+{% extends 'shared/layout.html.twig' %}
+{% block title %}New project{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 posts-list">
+                <div class="text-left comment-form mt-0">
+                    <h4 class="mx-4 my-2">New project</h4>
+                    <form method="post">
+                        {% if model %}
+                            <input name="id" value="{{ model.id }}" type="text">
+                        {% endif %}
+                        <div class="form-group">
+                            <label class="small mx-4">Title</label>
+                            <input name="title" type="text" class="form-control" placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                            <label class="small mx-4">Subtitle</label>
+                            <input name="subtitle" type="text" class="form-control" placeholder="Subtitle">
+                        </div>
+                        <div class="form-group">
+                            <label class="small mx-4">Description</label>
+                            <textarea name="description" type="text" class="form-control"
+                                      placeholder="Description"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary my-4">Save project</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

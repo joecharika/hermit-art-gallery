@@ -1,0 +1,55 @@
+{% extends 'shared/layout.html.twig' %}
+{% block title %}Project ({{ model.title }}){% endblock %}
+
+{% block body %}
+    <!-- page-banner-section
+    ================================================== -->
+    <section class="page-banner-section">
+        <div class="container-fluid">
+            <h1>{{ model.title }}</h1>
+            <p>{{ model.subtitle }}</p>
+        </div>
+    </section>
+    <!-- End page-banner section -->
+
+    <!-- single-project section -->
+    <section class="single-project-section">
+        <div class="single-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="images-project">
+                            <div class="row">
+                                {% for img in model.projectImages %}
+                                    <div class="col-sm-6">
+                                        <img src="{{ optImg(img.image, 90) }}" alt="{{ img.title }}">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="project-content">
+                            <h2>Description</h2>
+                            <p>{{ model.description }}</p>
+                            {% if user %}
+                                <h2>Upload new image</h2>
+                                <form enctype="multipart/form-data" method="post" action="/projectImages/create">
+                                    <input hidden name="projectId" value="{{ model.id }}">
+                                    <div class="form-group">
+                                        <input class="form-control" name="title" placeholder="Image caption">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="file" class="form-control" name="image">
+                                    </div>
+                                    <button type="submit" class="btn-default btn btn-dark">Save image</button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End single-project section -->
+{% endblock %}

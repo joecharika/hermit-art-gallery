@@ -1,0 +1,71 @@
+# Hyper v1.0.2-beta.2 (https://hyper.starlight.co.zw)
+# Copyright (c) 2019. J.Charika
+# Licensed under MIT (https://github.com/joecharika/hyper/master/LICENSE)
+
+# Tell indexer to ignore files and folder
+# Disabling directory browsing
+Options -Indexes
+IndexIgnore *
+
+# Activate long-term caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType text/x-javascript "access plus 1 month"
+    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# Restrict access to all files starting with "."
+<FilesMatch "^\.">
+	Order allow,deny
+	Deny from all
+</FilesMatch>
+
+# Protect your configuration
+<Files "hyper.config.json">
+    order allow,deny
+    deny from all
+    satisfy all
+</Files>
+
+# Allow any request to index.php
+<Files "^index.php">
+    order allow,deny
+    allow from all
+</Files>
+
+# Restrict access to twig templates or .php and .html files
+<Files ".*\.(twig|php|html)">
+    order allow,deny
+    deny from all
+    satisfy all
+</Files>
+
+# Enable compression for the following file types.
+<IfModule deflate_module>
+    AddOutputFilterByType            \
+     DEFLATE                         \
+      application/javascript         \
+      text/css                       \
+      text/html                      \
+      text/javascript                \
+      text/plain                     \
+      text/xml
+</IfModule>
+
+# Rewrite request to root index.php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
+</IfModule>

@@ -1,0 +1,191 @@
+{% extends 'shared/layout.html.twig' %}
+
+{% block title %}Manage profile{% endblock %}
+
+{% block styles %}{% endblock %}
+
+{% block body %}
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2>{{ model.name }} {{ model.otherNames }} {{ model.surname }}</h2>
+                    <div class="page_link">
+                        <a href="/">Home</a>
+                        <a href="#">My profile</a>
+                        <a href="/auth/sign-out">Sign-out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about_area p_120">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 mb-3">
+                    <div class="d-flex align-items-center">
+                        <img height="60" width="60" src="{{ optImg(model.image ?? '/assets/img/pages/at1.jpg', 30) }}"
+                             class="rounded-circle mr-4 img-cover"
+                             alt="Your profile">
+                        <div>
+                            <h3>{{ model }}</h3>
+                            <small class="text-muted">Manage your account</small>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="col-md-5">
+
+                    {#      <password>      #}
+                    <form action="/auth/password" method="post" class="card radius mb-3">
+                        <div class="card-header bg-transparent">
+                            <h4 class="card-title my-2"><i class="fa fa-key mx-2"></i>Update password</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-group">
+                        <span class="input-group-prepend">
+                            <span class="input-group-text">Old password</span>
+                        </span>
+                                <input required placeholder="Type password" type="password" class="form-control"
+                                       name="o_password"/>
+                            </div>
+                            <hr>
+                            <div class="input-group my-3">
+                        <span class="input-group-prepend">
+                            <span class="input-group-text">New password</span>
+                        </span>
+                                <input autocomplete="off" required type="password" placeholder="Type password"
+                                       class="form-control" name="n_password"/>
+                            </div>
+                            <div class="input-group">
+                        <span class="input-group-prepend">
+                            <span class="input-group-text">Confirm password</span>
+                        </span>
+                                <input autocomplete="off" required type="password" placeholder="Type password"
+                                       class="form-control" name="c_password"/>
+                            </div>
+                        </div>
+                        <div class="card-footer radius-bottom">
+                            <button class="btn btn-primary radius btn-sm px-3" type="submit">Update</button>
+                        </div>
+                    </form>
+                    {#      </password>      #}
+
+                    {#      <claims>      #}
+                    <div class="card radius my-3">
+                        <div class="card-header bg-transparent">
+                            <h4 class="card-title my-2"><i class="fa fa-globe mx-2"></i>Your browser log-ins</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="browser-stats">
+                                <ul class="list-group list-group-flush">
+                                    {% for login in claims %}
+                                        <li class="list-group-item d-flex align-items-center"
+                                            title="{{ login.browser }}">
+                                            <i class="fa fa-{{ login.browser|browser }} mr-2"></i>
+                                            <p class="text-truncate mb-0 px-2">{{ login.browser }}</p>
+                                            <div class="text-success ml-auto">
+                                                {% if login.id == appStorage.userClaim.id %}
+                                                    <span class="badge badge-success px-3 py-2">Current</span>
+                                                {% else %}
+                                                    <a href="/auth/browser-logout/{{ login.id }}"
+                                                       class="badge badge-danger px-3 py-2">Logout</a>
+                                                {% endif %}
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {#      </claims>      #}
+
+                </div>
+                <div class="col-md-7">
+
+                    {#      <profile>      #}
+                    <form action="/auth/profile" method="post" class="card radius" enctype="multipart/form-data">
+                        <div class="card-header bg-transparent">
+                            <h4 class="card-title my-2"><i class="fa fa-user-secret mx-2"></i>Personal Information</h4>
+                        </div>
+                        <div class="card-body">
+                            <input value="{{ model.id }}" hidden name="id"/>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Username</span>
+                                </div>
+                                <input value="{{ model.username }}" placeholder="Username" class="form-control"
+                                       name="username"/>
+                            </div>
+
+                            <div class="input-group my-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Name</span>
+                                </div>
+                                <input value="{{ model.name }}" required placeholder="First Name" class="form-control"
+                                       name="name"/>
+                                <input value="{{ model.lastName }}" placeholder="Last name" class="form-control"
+                                       name="lastName"/>
+                            </div>
+                            <div class="input-group my-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Other names</span>
+                                </div>
+                                <input value="{{ model.otherNames }}" placeholder="Other names"
+                                       class="form-control"
+                                       name="otherNames"/>
+                            </div>
+
+                            <div class="input-group my-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Phone</span>
+                                </div>
+                                <input value="{{ model.phone }}" placeholder="Phone" class="form-control" name="phone"/>
+                            </div>
+
+                            <div class="input-group my-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Email</span>
+                                </div>
+                                <input value="{{ model.email }}" type="email" placeholder="Email" class="form-control"
+                                       name="email"/>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">About me</span>
+                                </div>
+                                <textarea placeholder="About me" class="form-control"
+                                          name="notes">{{ model.notes }}</textarea>
+                            </div>
+
+                            <div class="input-group my-2">
+                                <div class="input-group-prepend" tooltip="Current: {{ model.image }}">
+                            <span class="input-group-text">
+                                <img height="30" width="30"
+                                     src="{{ optImg(model.image ?? '/assets/img/pages/at1.jpg', 30) }}"
+                                     class="rounded-circle img-cover"
+                                     alt="Your profile">
+                            </span>
+                                </div>
+                                <input hidden value="{{ model.image }}" placeholder="Cover image" class="form-control"
+                                       name="image"/>
+                                <input type="file" placeholder="Pick new image" class="form-control mb-0" name="image"/>
+                            </div>
+                        </div>
+                        <div class="card-footer radius-bottom">
+                            <button class="btn btn-primary px-3 radius btn-sm" type="submit">
+                                <i class="fa fa-save mx-1"></i>
+                                Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}{% endblock %}

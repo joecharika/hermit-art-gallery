@@ -1,0 +1,87 @@
+<!--================Header Menu Area =================-->
+<header class="header_area">
+    <div class="top_menu">
+        <div class="container">
+            <div class="top_inner">
+                <div class="float-left mr-auto">
+                    <a href="#">Call us</a>
+                    <a href="#">Send us mail</a>
+                </div>
+                {% if notification.message %}
+                    <div class="bg-{{ notification.messageType }} text-white d-inline-block flex-fill py-1 px-2 mx-2">
+                        <i class="fa fa-bell mr-2"></i>
+                        {{ notification.message }}
+                    </div>
+                {% endif %}
+                <div class="float-right">
+                    <ul class="list header_socila">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_menu" id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand logo_h" href="/">
+                    <img src="/assets/img/logo.png" alt="">
+                    <img src="/assets/img/logo-2.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav ml-auto">
+                        <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/home/about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/home/contact">Contact</a></li>
+
+                        {% if user.isAuthenticated %}
+                            <li class="nav-item submenu dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">Projects</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item"><a class="nav-link" href="/projects">All</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/projects/home/create">Create new</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item submenu dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">{{ user.name }}</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item"><a class="nav-link" href="/auth/profile">My profile</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/auth/sign-out">Sign out</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        {% else %}
+                            <li class="nav-item submenu dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">Members</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item"><a class="nav-link" href="/auth/sign-in">Sign in</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/auth/sign-up">Sign up</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        {% endif %}
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<!--================Header Menu Area =================-->

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectTasksOptions">
+    <enabled-global>
+      <option value="Sass" />
+      <option value="SCSS" />
+      <option value="YUI Compressor CSS" />
+      <option value="UglifyJS" />
+    </enabled-global>
+  </component>
+</project>

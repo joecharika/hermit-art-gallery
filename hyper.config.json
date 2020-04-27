@@ -1,0 +1,18 @@
+{
+  "db": {
+    "host": "localhost",
+    "database": "art_gallery",
+    "username": "root",
+    "password": ""
+  },
+  "debug": true,
+  "limitRequests": true,
+  "errors": {
+    "default": "error.html.twig",
+    "custom": {}
+  },
+  "authorize": {
+    "action": "sign-in"
+  },
+  "reportLink": "#"
+}
