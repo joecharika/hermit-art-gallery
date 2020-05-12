@@ -1,7 +1,6 @@
 {% extends 'shared/layout.html.twig' %}
 {% block title %}Projects{% endblock %}
 {% block body %}
-
     <!-- page-banner-section
         ================================================== -->
     <section class="page-banner-section">
@@ -22,7 +21,7 @@
             {% if view == 'normal' and user %}
                 <ul class="filter">
                     <li><a href="/projects/create">Add new</a></li>
-{#                    <li><a href="/projects/recycle">Recycle bin</a></li>#}
+                    {#                    <li><a href="/projects/recycle">Recycle bin</a></li>#}
                     <li><a href="/projects?view=guest">View as guest</a></li>
                 </ul>
             {% endif %}
@@ -41,6 +40,11 @@
                                 <h2><a href="/projects/details/{{ project.id }}">{{ project.title }}</a></h2>
                             </div>
                         </div>
+                    </div>
+                {% else %}
+                    <div>
+                        <h2>No projects</h2>
+                        <p>Sorry no projects currently available please check again later</p>
                     </div>
                 {% endfor %}
             </div>

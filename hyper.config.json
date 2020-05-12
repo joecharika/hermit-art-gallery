@@ -1,12 +1,13 @@
 {
   "db": {
     "host": "localhost",
-    "database": "art_gallery",
-    "username": "root",
-    "password": ""
+    "database": "starligh_gallery",
+    "username": "starligh_gallery",
+    "password": "Q#hG]]?Z=KNQ"
   },
-  "debug": true,
+  "debug": false,
   "limitRequests": true,
+  "gzip" : true,
   "errors": {
     "default": "error.html.twig",
     "custom": {}

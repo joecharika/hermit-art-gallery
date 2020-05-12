@@ -7,45 +7,28 @@
     <div class="photo-box">
         <div class="owl-carousel owl-theme">
 
-            <div class="item" data-merge="3">
-                <div class="photo-post">
-                    <img src="/assets/upload/slides/c1.jpg" alt="">
-                    <div class="hover-box">
-                        <h2><a href="single-project.html">Cras ornare tristique.</a></h2>
-                        <p>Aliquam tincidunt mauris eu risus.</p>
+            {% for p in projects %}
+                <div class="item" data-merge="{{ p.id == projects[0].id ? "3" : "2" }}">
+                    <div class="photo-post">
+                        <img src="{{ optImg(p.projectImages[0].image ?? '/assets/images/placeholder.png' , 50) }}"
+                             alt="{{ p.title }}">
+                        <div class="hover-box">
+                            <h2><a href="/projects/read/{{ p.id }}">{{ p.title }}</a></h2>
+                            <p>{{ p.subtitle }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="item" data-merge="2">
-                <div class="photo-post">
-                    <img src="/assets/upload/slides/c2.jpg" alt="">
-                    <div class="hover-box">
-                        <h2><a href="single-project.html">Praesent placerat.</a></h2>
-                        <p>Morbi in sem quis dui placerat ornare.</p>
+            {% else %}
+                <div class="item" data-merge="4">
+                    <div class="photo-post">
+                        <img src="/assets/images/placeholder.png" alt="placeholder">
+                        <div class="hover-box">
+                            <h2><a href="#">No projects</a></h2>
+                            <p>Sorry no projects currently available please check again later</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="item" data-merge="3">
-                <div class="photo-post">
-                    <img src="/assets/upload/slides/c3.jpg" alt="">
-                    <div class="hover-box">
-                        <h2><a href="single-project.html">Cras ornare tristique.</a></h2>
-                        <p>Aliquam tincidunt mauris eu risus.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item" data-merge="3">
-                <div class="photo-post">
-                    <img src="/assets/upload/slides/c4.jpg" alt="">
-                    <div class="hover-box">
-                        <h2><a href="single-project.html">Praesent placerat.</a></h2>
-                        <p>Morbi in sem quis dui placerat ornare.</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
 
         </div>
     </div>

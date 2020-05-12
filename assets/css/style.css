@@ -682,6 +682,7 @@ div#fixed-sidebar {
     -moz-transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
+    box-shadow: 0 16px 16px rgba(0, 0, 0, 0.05);
 }
 
 div#fixed-sidebar a.close-fixed-sidebar {

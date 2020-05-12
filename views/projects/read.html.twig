@@ -33,6 +33,11 @@
                             <h2>Description</h2>
                             <p>{{ model.description }}</p>
                             {% if user %}
+                                <p>
+                                    <a class="btn btn-primary" href="/projects/edit/{{ model.id }}">Edit</a>
+                                    <a class="btn btn-primary" href="/projects/delete/{{ model.id }}">Delete</a>
+                                </p>
+                                <hr>
                                 <h2>Upload new image</h2>
                                 <form enctype="multipart/form-data" method="post" action="/projectImages/create">
                                     <input hidden name="projectId" value="{{ model.id }}">

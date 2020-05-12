@@ -6,6 +6,7 @@ namespace Controllers {
     use Hyper\Controllers\Controller;
     use Hyper\Http\Request;
     use Models\Project;
+    use Models\ProjectImage;
     use function Hyper\Database\db;
 
     /**
@@ -21,7 +22,13 @@ namespace Controllers {
          */
         public function index(Request $request): string
         {
-            return $this->view('home.index');
+            return $this->view(
+                'home.index',
+                null,
+                null,
+                [
+                    'projects' => db(Project::class)->all()->lists([ProjectImage::class])->toList()
+                ]);
         }
 
         /**

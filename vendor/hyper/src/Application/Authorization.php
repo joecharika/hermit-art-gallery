@@ -43,8 +43,8 @@ class Authorization
      */
     public function __construct()
     {
-        $this->users = new DatabaseContext('user');
-        $this->claims = new DatabaseContext('claim');
+        $this->users = new DatabaseContext(User::class);
+        $this->claims = new DatabaseContext(Claim::class);
         $this->cookie = new Cookie();
 
         ['token' => $this->token, 'user' => $this->user] = (array)$this->getSession();
