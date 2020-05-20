@@ -76,7 +76,8 @@ namespace Controllers {
             return $this->view(
                 'projects.write',
                 $model ?? $request->fromParam(),
-                $message
+                $message,
+                ['mode' => 'edit']
             );
         }
 
@@ -93,7 +94,8 @@ namespace Controllers {
             return $this->view(
                 'projects.index',
                 $this->db->all()->lists([ProjectImage::class])->toList(),
-                $message ?? new HttpMessage("Are you sure you want to delete project, $model->title", 'warning', "/projects/delete-confirmed/$model->id")
+                $message ?? new HttpMessage("Are you sure you want to delete project, $model->title", 'warning',
+                    "/projects/delete-confirmed/$model->id")
             );
         }
 
@@ -112,7 +114,8 @@ namespace Controllers {
             return $this->delete(
                 $request,
                 $model,
-                $message ?? new HttpMessage('Failed to delete! Try again?', 'warning', "/projects/delete-confirmed/$model->id")
+                $message ?? new HttpMessage('Failed to delete! Try again?', 'warning',
+                    "/projects/delete-confirmed/$model->id")
             );
         }
     }

@@ -25,6 +25,16 @@ namespace Models {
              */
             $title,
             /**
+             * @var float
+             * @SQLType float
+             */
+            $price,
+            /**
+             * @var string
+             * @SQLType varchar(100)
+             */
+            $state,
+            /**
              * @var string
              * @file
              * @SQLAttributes not null

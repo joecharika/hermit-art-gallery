@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900|Raleway:300,400,400i,500,600,700");
 
-.reset-elem, header nav.nav-menu ul.menu-list, div.dropdown ul.drop-list, section.page-banner-section ul.post-meta, .switcher-box ul.switcher-list, div#fixed-sidebar div.instagram-widget ul, div#fixed-sidebar ul.contact-info, div#fixed-sidebar ul.social-icons, ul.filter, .blog-page-section .blog-page-box .blog-post .post-content ul.post-meta, .pagination-box ul.page-list, .sidebar .category-widget ul,
-.sidebar .archive-widget ul, .sidebar .popular-widget ul.popular-list, .sidebar .tags-widget ul.tags-list, section.testimonial-section .testimonial-box ul.bxslider, section.clients-section .clients-box ul.client-list, .single-post-box ul.cat-tags, .single-post-box ul.share-post, div.comments-box ul.comments-list, section.single-project-section .single-content .project-content ul.social-icons, section.single-project-section .single-content .project-content ul.detail-list, .shop-section .shop-box .product-visibility .other-products, .shop-section .shop-box .product-details .prod-list ul, .product-reviews ul, .billing-box ul.pay-list, .shopping-popup ul.shopping-list {
+.reset-elem, header nav.nav-menu ul.menu-list, div.dropdown ul.drop-list, section.page-banner-section ul.post-meta, .switcher-box ul.switcher-list, div#fixed-sidebar div.instagram-widget ul, div#fixed-sidebar ul.contact-info, div#fixed-sidebar ul.social-icons, ul.filter, .blog-page-section .blog-page-box .blog-post .post-content ul.post-meta, .pagination-box ul.page-list, .sidebar .category-widget ul, .sidebar .archive-widget ul, .sidebar .popular-widget ul.popular-list, .sidebar .tags-widget ul.tags-list, section.testimonial-section .testimonial-box ul.bxslider, section.clients-section .clients-box ul.client-list, .single-post-box ul.cat-tags, .single-post-box ul.share-post, div.comments-box ul.comments-list, section.single-project-section .single-content .project-content ul.social-icons, section.single-project-section .single-content .project-content ul.detail-list, .shop-section .shop-box .product-visibility .other-products, .shop-section .shop-box .product-details .prod-list ul, .product-reviews ul, .billing-box ul.pay-list, .shopping-popup ul.shopping-list {
     margin: 0;
     padding: 0;
 }
@@ -57,8 +56,10 @@
 }
 
 /*------------------------------------------------- */
+
 /* =  Header
  *------------------------------------------------- */
+
 header {
     width: 290px;
     position: fixed;
@@ -121,13 +122,11 @@ header nav.nav-menu ul.menu-list > li > a:before {
     background: #ccb78d;
 }
 
-header nav.nav-menu ul.menu-list > li a.active,
-header nav.nav-menu ul.menu-list > li a:hover {
+header nav.nav-menu ul.menu-list > li a.active, header nav.nav-menu ul.menu-list > li a:hover {
     color: #ccb78d;
 }
 
-header nav.nav-menu ul.menu-list > li a.active:before,
-header nav.nav-menu ul.menu-list > li a:hover:before {
+header nav.nav-menu ul.menu-list > li a.active:before, header nav.nav-menu ul.menu-list > li a:hover:before {
     width: 40px;
 }
 
@@ -147,8 +146,7 @@ body.dark header nav.nav-menu ul.menu-list li a {
     color: #cccccc;
 }
 
-body.dark header nav.nav-menu ul.menu-list li a.active,
-body.dark header nav.nav-menu ul.menu-list li a:hover {
+body.dark header nav.nav-menu ul.menu-list li a.active, body.dark header nav.nav-menu ul.menu-list li a:hover {
     color: #ccb78d;
 }
 
@@ -235,9 +233,13 @@ a.menu-toggle {
  * @param  {Value}  $size:   auto auto  The intended width of the rendered image.
  * @param  {Value}  $extras: null       Any other `background` values to be added.
  */
+
 /*-------------------------------------------------- */
+
 /* 1. Isotope filtering */
+
 /*------------------------------------------------- */
+
 .isotope-item {
     z-index: 2;
 }
@@ -276,7 +278,9 @@ a.menu-toggle {
  *author:     themepunch
  *email:      support@themepunch.com
  *website:    http://www.themepunch.com */
+
 /*----------------------------------------------------------------------------- */
+
 .boxedcontainer {
     max-width: 1170px;
     margin: auto;
@@ -286,6 +290,7 @@ a.menu-toggle {
 /*********************************************
  *    -   SETTINGS FOR BANNER CONTAINERS  -
  ********************************************* */
+
 .tp-banner-container {
     width: 100%;
     position: relative;
@@ -304,8 +309,11 @@ a.menu-toggle {
 }
 
 /*------------------------------------------------- */
+
 /* =  General */
+
 /*------------------------------------------------- */
+
 body {
     transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
@@ -514,11 +522,20 @@ body.dark .slider-section.slider-right-white li:after {
     -o-transition: all 0.4s ease-in-out;
 }
 
+.photo-box .overlay {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .15);
+    position: absolute;
+}
+
 .photo-post .hover-box {
     position: absolute;
     left: 70px;
     right: 70px;
-    bottom: 70px;
+    top: 100px;
 }
 
 .photo-post .hover-box h2 {
@@ -666,8 +683,11 @@ section.page-banner-section ul.post-meta li:first-child:before {
 }
 
 /*------------------------------------------------- */
+
 /* =  right fixed sidebar */
+
 /*------------------------------------------------- */
+
 div#fixed-sidebar {
     position: fixed;
     top: 0;
@@ -822,8 +842,11 @@ div#fixed-sidebar.active {
 }
 
 /*------------------------------------------------- */
+
 /* =  Team Sections */
+
 /*------------------------------------------------- */
+
 section.team-section {
     padding: 50px 35px 20px;
     background: #333333;
@@ -849,8 +872,11 @@ section.team-section .team-post p {
 }
 
 /*------------------------------------------------- */
+
 /* =  Portfolio */
+
 /*------------------------------------------------- */
+
 section.portfolio-section {
     padding: 40px 20px;
     background: #fff;
@@ -870,7 +896,8 @@ section.portfolio-section .portfolio-box .project-post .project-gal {
 
 section.portfolio-section .portfolio-box .project-post .project-gal img {
     width: 100%;
-    height: auto;
+    height: 300px;
+    object-fit: cover;
     transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
@@ -1047,8 +1074,11 @@ ul.filter li:first-child {
 }
 
 /*------------------------------------------------- */
+
 /* =  News section */
+
 /*------------------------------------------------- */
+
 .blog-page-section {
     padding: 0 35px;
     background: #ffffff;
@@ -1225,14 +1255,16 @@ ul.filter li:first-child {
     width: 10px !important;
 }
 
-.flex-direction-nav .flex-prev,
-.flex-direction-nav .flex-next {
+.flex-direction-nav .flex-prev, .flex-direction-nav .flex-next {
     width: 40px !important;
 }
 
 /*------------------------------------------------- */
+
 /* =  Sidebar */
+
 /*------------------------------------------------- */
+
 .sidebar {
     padding: 40px 0 40px 30px;
     border-left: 1px solid #ebebeb;
@@ -1284,14 +1316,12 @@ ul.filter li:first-child {
     margin-bottom: 0;
 }
 
-.sidebar .category-widget ul li,
-.sidebar .archive-widget ul li {
+.sidebar .category-widget ul li, .sidebar .archive-widget ul li {
     list-style: none;
     margin-bottom: 10px;
 }
 
-.sidebar .category-widget ul li a,
-.sidebar .archive-widget ul li a {
+.sidebar .category-widget ul li a, .sidebar .archive-widget ul li a {
     color: #666666;
     font-size: 15px;
     font-family: "Raleway", sans-serif;
@@ -1299,8 +1329,7 @@ ul.filter li:first-child {
     font-weight: 400;
 }
 
-.sidebar .category-widget ul li a:before,
-.sidebar .archive-widget ul li a:before {
+.sidebar .category-widget ul li a:before, .sidebar .archive-widget ul li a:before {
     content: '\f112';
     font-family: 'LineAwesome';
     font-size: 10px;
@@ -1318,18 +1347,15 @@ ul.filter li:first-child {
     margin-top: 3px;
 }
 
-.sidebar .category-widget ul li a:hover,
-.sidebar .archive-widget ul li a:hover {
+.sidebar .category-widget ul li a:hover, .sidebar .archive-widget ul li a:hover {
     color: #ccb78d;
 }
 
-.sidebar .category-widget ul li a:hover:before,
-.sidebar .archive-widget ul li a:hover:before {
+.sidebar .category-widget ul li a:hover:before, .sidebar .archive-widget ul li a:hover:before {
     color: #ccb78d;
 }
 
-.sidebar .category-widget ul li:last-child,
-.sidebar .archive-widget ul li:last-child {
+.sidebar .category-widget ul li:last-child, .sidebar .archive-widget ul li:last-child {
     margin-bottom: 0px;
 }
 
@@ -1417,8 +1443,7 @@ ul.filter li:first-child {
     margin-bottom: 0;
 }
 
-.sidebar .filter-widget #start-val,
-.sidebar .filter-widget #end-val {
+.sidebar .filter-widget #start-val, .sidebar .filter-widget #end-val {
     display: inline-block;
     border: none;
     padding: 0;
@@ -1527,8 +1552,11 @@ ul.filter li:first-child {
 }
 
 /*------------------------------------------------- */
+
 /* =  About sections */
+
 /*------------------------------------------------- */
+
 section.about-section {
     padding: 40px 35px;
     position: relative;
@@ -1606,8 +1634,11 @@ section.about-section2 .about-post span {
 }
 
 /*------------------------------------------------- */
+
 /* =  Services sections*/
+
 /*------------------------------------------------- */
+
 section.services-section {
     padding: 50px 35px 20px;
     background: #333333;
@@ -1642,8 +1673,11 @@ section.services-section .services-post p span {
 }
 
 /*------------------------------------------------- */
+
 /* =  Testimonials */
+
 /*------------------------------------------------- */
+
 section.testimonial-section {
     padding: 50px 35px;
     background: #ffffff;
@@ -1680,8 +1714,11 @@ section.testimonial-section .testimonial-box span {
 }
 
 /*------------------------------------------------- */
+
 /* =  Video sections*/
+
 /*------------------------------------------------- */
+
 .video-section {
     padding: 200px 0;
     text-align: center;
@@ -1771,8 +1808,11 @@ section.testimonial-section .testimonial-box span {
 }
 
 /*------------------------------------------------- */
+
 /* =  Clients sections */
+
 /*------------------------------------------------- */
+
 section.clients-section {
     padding: 60px 35px 40px;
     background: #ffffff;
@@ -1824,8 +1864,11 @@ section.clients-section .article-box p {
 }
 
 /*------------------------------------------------- */
+
 /* =  Statistic sections*/
+
 /*------------------------------------------------- */
+
 section.statistic-section {
     padding: 50px 0;
     background: #fff;
@@ -1857,8 +1900,11 @@ section.statistic-section .statistic-post h2 {
 }
 
 /*------------------------------------------------- */
+
 /* =  Single Post */
+
 /*------------------------------------------------- */
+
 .single-post-box {
     padding: 40px 0;
 }
@@ -2070,8 +2116,7 @@ div.comments-box ul.comments-list li .comment-box p {
     margin-bottom: 30px;
 }
 
-#comment-form input[type="text"],
-#comment-form textarea {
+#comment-form input[type="text"], #comment-form textarea {
     display: block;
     width: 100%;
     padding: 12px 20px;
@@ -2088,8 +2133,7 @@ div.comments-box ul.comments-list li .comment-box p {
     -o-transition: all 0.2s ease-in-out;
 }
 
-#comment-form input[type="text"]:focus,
-#comment-form textarea:focus {
+#comment-form input[type="text"]:focus, #comment-form textarea:focus {
     border: 1px solid #ccb78d;
     background: transparent;
 }
@@ -2123,8 +2167,11 @@ div.comments-box ul.comments-list li .comment-box p {
 }
 
 /*------------------------------------------------- */
+
 /* =  Single Project */
+
 /*------------------------------------------------- */
+
 section.single-project-section {
     padding: 40px 35px 10px;
     background: #ffffff;
@@ -2226,8 +2273,11 @@ section.single-project-section .single-content .project-content ul.detail-list l
 }
 
 /*------------------------------------------------- */
+
 /* =  Contact */
+
 /*------------------------------------------------- */
+
 section.contact-info-section {
     padding: 40px 35px 30px;
     background: #fff;
@@ -2281,8 +2331,7 @@ section.contact-form-section .contact-form-box #contact-form p {
     margin-bottom: 30px;
 }
 
-section.contact-form-section .contact-form-box #contact-form input[type="text"],
-section.contact-form-section .contact-form-box #contact-form textarea {
+section.contact-form-section .contact-form-box #contact-form input[type="text"], section.contact-form-section .contact-form-box #contact-form textarea {
     display: block;
     width: 100%;
     padding: 12px 20px;
@@ -2351,8 +2400,11 @@ section.contact-form-section .contact-form-box .image-holder img {
 }
 
 /*------------------------------------------------- */
+
 /* =  error page */
+
 /*------------------------------------------------- */
+
 section.error-404-section {
     position: fixed;
     top: 50px;
@@ -2427,8 +2479,11 @@ section.error-404-section p {
 }
 
 /*------------------------------------------------- */
+
 /* =  Shop pages */
+
 /*------------------------------------------------- */
+
 .shop-section {
     padding: 0 35px;
     background: #ffffff;
@@ -2811,8 +2866,7 @@ section.error-404-section p {
     margin-bottom: 20px;
 }
 
-#add-review-form input[type="text"],
-#add-review-form textarea {
+#add-review-form input[type="text"], #add-review-form textarea {
     display: block;
     width: 100%;
     padding: 12px 20px;
@@ -3070,8 +3124,7 @@ section.shopping-cart-section {
     text-align: right;
 }
 
-.billing-box input[type="text"],
-.billing-box textarea {
+.billing-box input[type="text"], .billing-box textarea {
     display: block;
     width: 100%;
     padding: 12px 20px;
@@ -3286,8 +3339,10 @@ section.shopping-cart-section {
 }
 
 /*-------------------------------------------------*/
+
 /* =  Responsive Part
 /*-------------------------------------------------*/
+
 @media (max-width: 1804px) {
     .slider-section.slider-right-white .border-line {
         width: 700px;
@@ -3301,8 +3356,7 @@ section.shopping-cart-section {
         height: 520px;
     }
 
-    section.contact-form-section .contact-form-box #contact-form,
-    section.contact-form-section .contact-form-box .image-holder {
+    section.contact-form-section .contact-form-box #contact-form, section.contact-form-section .contact-form-box .image-holder {
         width: 50%;
     }
 }
@@ -3378,8 +3432,7 @@ section.shopping-cart-section {
         margin-right: 10px;
     }
 
-    .shop-section .shop-box .product-details div.quantity-add button,
-    .shop-section .shop-box .product-details div.quantity-add input {
+    .shop-section .shop-box .product-details div.quantity-add button, .shop-section .shop-box .product-details div.quantity-add input {
         width: 40px;
     }
 
@@ -3399,8 +3452,7 @@ section.shopping-cart-section {
         height: 400px;
     }
 
-    section.portfolio-section .portfolio-box .project-post,
-    section.portfolio-section .portfolio-box.colum-3 .project-post {
+    section.portfolio-section .portfolio-box .project-post, section.portfolio-section .portfolio-box.colum-3 .project-post {
         width: 50%;
     }
 
@@ -3623,8 +3675,7 @@ section.shopping-cart-section {
         display: block;
     }
 
-    .single-post-box .article-box .article-image,
-    .single-post-box .article-box .article-content {
+    .single-post-box .article-box .article-image, .single-post-box .article-box .article-content {
         width: 100%;
         padding-left: 0;
     }
@@ -3637,21 +3688,18 @@ section.shopping-cart-section {
         display: none;
     }
 
-    .checking-form .checkout-buttons .left-buttons,
-    .checking-form .checkout-buttons .right-buttons {
+    .checking-form .checkout-buttons .left-buttons, .checking-form .checkout-buttons .right-buttons {
         float: none;
         width: 100%;
         text-align: left;
     }
 
-    .checking-form .checkout-buttons .left-buttons a,
-    .checking-form .checkout-buttons .right-buttons a {
+    .checking-form .checkout-buttons .left-buttons a, .checking-form .checkout-buttons .right-buttons a {
         margin-left: 0;
         margin-right: 10px;
     }
 
-    .checking-form .table,
-    .checking-form .table-responsive {
+    .checking-form .table, .checking-form .table-responsive {
         border: none !important;
     }
 
@@ -3669,9 +3717,7 @@ section.shopping-cart-section {
         height: 250px;
     }
 
-    section.portfolio-section .portfolio-box .project-post,
-    section.portfolio-section .portfolio-box.colum-3 .project-post,
-    .blog-page-section .blog-page-box .blog-post {
+    section.portfolio-section .portfolio-box .project-post, section.portfolio-section .portfolio-box.colum-3 .project-post, .blog-page-section .blog-page-box .blog-post {
         width: 100%;
     }
 

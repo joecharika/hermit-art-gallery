@@ -47,7 +47,7 @@
             </nav>
 
             <p>
-                © 2019 Daxon. <br>All rights reserved. <br>
+                © {{ now|date('Y') }} HermitArt. <br>All rights reserved. <br>
                 Made by <a href="//hyper.starlight.co.zw" target="_blank"><span>hyper</span></a>
                 from <a href="//starlight.co.zw" target="_blank"><span>Starlight</span></a>
             </p>
@@ -61,7 +61,8 @@
         <div class="switcher-box">
             <ul class="switcher-list">
                 {% if user %}
-                    <li><a class="" href="/auth/profile"><i class="la la-user"></i> {{ user }}</a></li>
+                    <li><a class="" title="Manage account" href="/auth/profile"><i class="la la-user"></i> {{ user }}</a></li>
+                    <li><a class="" href="/auth/sign-out"><i class="la la-sign-out"></i> Sign out</a></li>
                 {% else %}
                     <li><a class="" href="/auth/sign-in"><i class="la la-user"></i> Sign in</a></li>
                 {% endif %}

@@ -6,7 +6,7 @@
     "password": "Q#hG]]?Z=KNQ"
   },
   "debug": false,
-  "limitRequests": true,
+  "limitRequests": false,
   "gzip" : true,
   "errors": {
     "default": "error.html.twig",

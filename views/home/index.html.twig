@@ -1,36 +1,41 @@
 {% extends 'shared/layout.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Home
+{% endblock %}
 
 {% block body %}
 
-    <div class="photo-box">
-        <div class="owl-carousel owl-theme">
+	<div class="photo-box">
+		<div class="owl-carousel owl-theme">
 
-            {% for p in projects %}
-                <div class="item" data-merge="{{ p.id == projects[0].id ? "3" : "2" }}">
-                    <div class="photo-post">
-                        <img src="{{ optImg(p.projectImages[0].image ?? '/assets/images/placeholder.png' , 50) }}"
-                             alt="{{ p.title }}">
-                        <div class="hover-box">
-                            <h2><a href="/projects/read/{{ p.id }}">{{ p.title }}</a></h2>
-                            <p>{{ p.subtitle }}</p>
-                        </div>
-                    </div>
-                </div>
-            {% else %}
-                <div class="item" data-merge="4">
-                    <div class="photo-post">
-                        <img src="/assets/images/placeholder.png" alt="placeholder">
-                        <div class="hover-box">
-                            <h2><a href="#">No projects</a></h2>
-                            <p>Sorry no projects currently available please check again later</p>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+			{% for p in projects %}
+				<div class="item" data-merge="{{ p.id == projects[0].id ? "3" : "2" }}">
+					<div class="photo-post">
+						<img src="{{ optImg(p.projectImages[0].image ?? '/assets/images/placeholder.png' , 90) }}" alt="{{ p.title }}">
+						<div class="overlay"></div>
+						<div class="hover-box">
+							<h2>
+								<a href="/projects/details/{{ p.id }}">{{ p.title }}</a>
+							</h2>
+							<p>{{ p.subtitle }}</p>
+						</div>
+					</div>
+				</div>
+			{% else %}
+				<div class="item" data-merge="4">
+					<div class="photo-post">
+						<img src="/assets/images/placeholder.png" alt="placeholder">
+						<div class="hover-box">
+							<h2>
+								<a href="#">No projects</a>
+							</h2>
+							<p>Sorry no projects currently available please check again later</p>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
 
-        </div>
-    </div>
+		</div>
+	</div>
 
 {% endblock %}

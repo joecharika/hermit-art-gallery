@@ -4,8 +4,8 @@
     <enabled-global>
       <option value="Sass" />
       <option value="SCSS" />
-      <option value="YUI Compressor CSS" />
       <option value="UglifyJS" />
+      <option value="CSSO CSS Optimizer" />
     </enabled-global>
   </component>
 </project>

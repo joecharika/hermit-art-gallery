@@ -60,9 +60,9 @@ class FileHandler
     private function handleUpload($file)
     {
         #If there is no file at all then no upload will take place
-        if (!isset($file)) return null;
+        if (!isset($file) || $file['error'] == UPLOAD_ERR_NO_FILE) return null;
 
-        if ($file['error'] == 0) {
+        if ($file['error'] == UPLOAD_ERR_OK) {
             #If the file has a name but no temporary name hence the file did not reach the server
             if (!empty($file['name']) && empty($file['tmp_name'])) self::error(new HyperException('This file could not be uploaded'));
 

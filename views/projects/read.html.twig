@@ -22,8 +22,25 @@
                             <div class="row">
                                 {% for img in model.projectImages %}
                                     <div class="col-sm-6">
-                                        <img src="{{ optImg(img.image, 90) }}" alt="{{ img.title }}">
+                                        <figure class="img-thumbnail">
+                                            <img src="{{ optImg(img.image, 90) }}" alt="{{ img.title }}">
+                                            <figcaption class="text-center">
+                                                <h4>{{ img.title }} (${{ img.price }})</h4>
+                                                <span>{{ img.state }}</span>
+                                                {% if user %}
+                                                    &nbsp;|&nbsp;
+                                                    <a class="ml-2"
+                                                       href="{{ "/projectImages/edit/" ~ model.id ~"/image/" ~ img.id }}">
+                                                        Edit image
+                                                    </a>
+                                                {% endif %}
+                                            </figcaption>
+                                        </figure>
+
                                     </div>
+                                {% else %}
+                                    <h5>No images</h5>
+                                    <p>No artwork has been associated with this project just yet, please check again in a moment.</p>
                                 {% endfor %}
                             </div>
                         </div>
@@ -34,18 +51,44 @@
                             <p>{{ model.description }}</p>
                             {% if user %}
                                 <p>
+                                    {% if image %}
+                                        <a class="btn btn-primary" href="/projects/details/{{ model.id }}">New Image</a>
+                                    {% endif %}
                                     <a class="btn btn-primary" href="/projects/edit/{{ model.id }}">Edit</a>
                                     <a class="btn btn-primary" href="/projects/delete/{{ model.id }}">Delete</a>
                                 </p>
                                 <hr>
-                                <h2>Upload new image</h2>
-                                <form enctype="multipart/form-data" method="post" action="/projectImages/create">
+                                <h2>{{ image ? "Edit image" : "Upload new image" }}</h2>
+                                <form enctype="multipart/form-data" method="post"
+                                      action="{{ image ? ("projectImages/edit/" ~ image.id) : "/projectImages/create" }}">
+                                    {% if image %}
+                                        <img class="img-thumbnail" src="{{ optImg(image.image, 50) }}"
+                                             alt="">
+                                        <input hidden name="image" value="{{ image.image }}">
+                                        <input hidden name="id" value="{{ image.id }}">
+                                    {% endif %}
                                     <input hidden name="projectId" value="{{ model.id }}">
                                     <div class="form-group">
-                                        <input class="form-control" name="title" placeholder="Image caption">
+                                        <input class="form-control" value="{{ image.title }}" name="title"
+                                               placeholder="Image caption">
                                     </div>
                                     <div class="form-group">
-                                        <input type="file" class="form-control" name="image">
+                                        <input class="form-control" type="number" value="{{ image.price }}" name="price"
+                                               placeholder="Price">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="state">State</label>
+                                        <select id="state" class="form-control" name="state">
+                                            <option {{ image.state == "Available" ? "selected" : "" }}>Available
+                                            </option>
+                                            <option {{ image.state == "Unavailable" ? "selected" : "" }}>Unavailable
+                                            </option>
+                                            <option {{ image.state == "Sold" ? "selected" : "" }}>Sold</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image">Image</label>
+                                        <input id="image" type="file" class="form-control" name="image">
                                     </div>
                                     <button type="submit" class="btn-default btn btn-dark">Save image</button>
                                 </form>
