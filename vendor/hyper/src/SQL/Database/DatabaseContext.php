@@ -135,7 +135,11 @@ class DatabaseContext
 
                     $properties = array_map(
                         function ($property) use ($classVars) {
-                            $type = Annotation::getPropertyAnnotation($this->model, $property, 'SQLType') ?? 'text';
+                            $type = Annotation::getPropertyAnnotation(
+                                $this->model,
+                                $property,
+                                'SQLType'
+                                ) ?? 'text';
                             $sqlAttrs = Annotation::getPropertyAnnotation(
                                     $this->model,
                                     $property,

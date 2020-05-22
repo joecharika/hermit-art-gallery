@@ -294,7 +294,7 @@ class Request
             if (property_exists(Request::data(), $property) || property_exists(Request::files(), $property)) {
                 if (Annotation::getPropertyAnnotation($class, $property, 'file')) {
                     $hasFile = !empty(Obj::property(Request::files(), $property)['tmp_name']);
-                    $object[$property] = $hasFile ? Request::files()->$property : Request::data()->$property;
+                    $object[$property] = $hasFile ? @Request::files()->$property : @Request::data()->$property;
                 } else $object[$property] = Request::data()->$property;
             }
         }

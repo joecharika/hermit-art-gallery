@@ -24,19 +24,21 @@
                             <input name="id" hidden value="{{ model.id }}" type="text">
                         {% endif %}
                         <div class="form-group">
-                            <label class="small mx-4">Title</label>
+                            <label class="small ">Title</label>
                             <input value="{{ model.title }}" name="title" type="text" class="form-control" placeholder="Title">
                         </div>
                         <div class="form-group">
-                            <label class="small mx-4">Subtitle</label>
+                            <label class="small ">Subtitle</label>
                             <input value="{{ model.subtitle }}" name="subtitle" type="text" class="form-control" placeholder="Subtitle">
                         </div>
                         <div class="form-group">
-                            <label class="small mx-4">Description</label>
+                            <label class="small ">Description</label>
                             <textarea name="description" type="text" class="form-control"
                                       placeholder="Description">{{ model.description }}</textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary my-4">Save project</button>
+                        <button type="submit" class="btn btn-primary my-1">Save project</button>
+                        <button type="reset" class="btn m-1 btn-default">Reset</button>
+                        <a href="{{ request.previousUrl }}" class="btn btn-dark my-1">Cancel</a>
                     </form>
                 </div>
             </div>

@@ -21,33 +21,45 @@
                         <div class="images-project">
                             <div class="row">
                                 {% for img in model.projectImages %}
-                                    <div class="col-sm-6">
-                                        <figure class="img-thumbnail">
-                                            <img src="{{ optImg(img.image, 90) }}" alt="{{ img.title }}">
-                                            <figcaption class="text-center">
-                                                <h4>{{ img.title }} (${{ img.price }})</h4>
-                                                <span>{{ img.state }}</span>
+                                    <div class="col-sm-12">
+                                        <figure class="project-img">
+                                            <div class="img">
+                                                <img src="{{ optImg(img.image, 90) }}" alt="{{ img.title }}">
+                                            </div>
+                                            <figcaption>
+                                                <h5 title="{{ img.title }}" class="text-truncate"><b>{{ img.title }}</b></h5>
+                                                <span>
+                                                    <small class="text-muted">Price:&nbsp;</small>{{ img.price ? ('$' ~ img.price) : 'Free'  }}
+                                                </span><br>
+                                                <span>
+                                                    <small class="text-muted">Status:&nbsp;</small>{{ img.state }}
+                                                </span><br>
+                                                <span><small class="text-muted">Size:&nbsp;</small>{{ img.size }}</span><br>
+                                                <span><small
+                                                            class="text-muted">Date:&nbsp;</small>{{ img.datePainted|date('d M Y') }}</span><br>
                                                 {% if user %}
-                                                    &nbsp;|&nbsp;
-                                                    <a class="ml-2"
-                                                       href="{{ "/projectImages/edit/" ~ model.id ~"/image/" ~ img.id }}">
-                                                        Edit image
-                                                    </a>
+                                                    <hr>
+                                                    <a href="{{ "/projectImages/edit/" ~ model.id ~"/image/" ~ img.id }}">Edit</a> or
+                                                    <a href="/projectImages/delete/{{ img.id }}">delete</a> artwork
                                                 {% endif %}
                                             </figcaption>
                                         </figure>
 
                                     </div>
                                 {% else %}
-                                    <h5>No images</h5>
-                                    <p>No artwork has been associated with this project just yet, please check again in a moment.</p>
+                                    <div class="col-md-12">
+                                        <img class="project-edit-img" src="/assets/images/placeholder.png" alt="">
+                                        <h5>No images</h5>
+                                        <p>No artwork has been associated with this project just yet, please check again in
+                                            a moment.</p>
+                                    </div>
                                 {% endfor %}
                             </div>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="project-content">
-                            <h2>Description</h2>
+                            <h2>Project Description</h2>
                             <p>{{ model.description }}</p>
                             {% if user %}
                                 <p>
@@ -58,11 +70,11 @@
                                     <a class="btn btn-primary" href="/projects/delete/{{ model.id }}">Delete</a>
                                 </p>
                                 <hr>
-                                <h2>{{ image ? "Edit image" : "Upload new image" }}</h2>
+                                <h2 id="edit-topic">{{ image ? "Edit image" : "Upload new image" }}</h2>
                                 <form enctype="multipart/form-data" method="post"
                                       action="{{ image ? ("projectImages/edit/" ~ image.id) : "/projectImages/create" }}">
                                     {% if image %}
-                                        <img class="img-thumbnail" src="{{ optImg(image.image, 50) }}"
+                                        <img class="project-edit-img" src="{{ optImg(image.image, 50) }}"
                                              alt="">
                                         <input hidden name="image" value="{{ image.image }}">
                                         <input hidden name="id" value="{{ image.id }}">
@@ -73,8 +85,22 @@
                                                placeholder="Image caption">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" type="number" value="{{ image.price }}" name="price"
+                                        <label for="price">Price</label>
+                                        <input id="price" class="form-control" type="number" value="{{ image.price }}"
+                                               name="price"
                                                placeholder="Price">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="size">Size</label>
+                                        <input id="size" class="form-control" type="text" value="{{ image.size }}"
+                                               name="size"
+                                               placeholder="Size eg. 100'x100'">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="date">Date painted</label>
+                                        <input id="date" class="form-control" type="date"
+                                               value="{{ image.datePainted|date('yyyy-MM-dd') }}" name="datePainted"
+                                               placeholder="Date">
                                     </div>
                                     <div class="form-group">
                                         <label for="state">State</label>

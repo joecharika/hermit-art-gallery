@@ -4,6 +4,9 @@
 namespace Models {
 
 
+    use DateTime;
+    use Exception;
+
     class ProjectImage
     {
         public
@@ -33,6 +36,16 @@ namespace Models {
              * @var string
              * @SQLType varchar(100)
              */
+            $size,
+            /**
+             * @var DateTime
+             * @SQLType datetime
+             */
+            $datePainted,
+            /**
+             * @var string
+             * @SQLType varchar(100)
+             */
             $state,
             /**
              * @var string
@@ -40,5 +53,14 @@ namespace Models {
              * @SQLAttributes not null
              */
             $image;
+
+            public function __set($name, $value)
+            {
+                try {
+                    $this->$name = $name == 'datePainted' ? new DateTime($value) : $value;
+                } catch (Exception $e) {
+                    $this->$name = $value;
+                }
+            }
     }
 }

@@ -44,7 +44,7 @@ class HttpMessage
     public function __construct($message, $type = HttpMessageType::INFO, $action = null)
     {
         $this->message = $message;
-        $this->messageType = $type;
+        $this->messageType = $type ?? HttpMessageType::INFO;
         $this->action = $action;
     }
 

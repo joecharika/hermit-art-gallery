@@ -61,7 +61,8 @@
         <div class="switcher-box">
             <ul class="switcher-list">
                 {% if user %}
-                    <li><a class="" title="Manage account" href="/auth/profile"><i class="la la-user"></i> {{ user }}</a></li>
+                    <li><a class="" title="Manage account" href="/auth/profile"><i class="la la-user"></i> {{ user }}
+                        </a></li>
                     <li><a class="" href="/auth/sign-out"><i class="la la-sign-out"></i> Sign out</a></li>
                 {% else %}
                     <li><a class="" href="/auth/sign-in"><i class="la la-user"></i> Sign in</a></li>
@@ -77,14 +78,12 @@
             ================================================== -->
         <div id="content">
             {% if notification.message %}
-                <div class="container">
-                    <div class="jumbotron">
-                        <p><i class="fa fa-info-circle"></i> {{ notification.message }}</p>
-                        {% if notification.action %}
-                            <p><a class="btn btn-{{ notification.messageType }} btn-lg" href="{{ notification.action }}"
-                                  role="button">Proceed</a></p>
-                        {% endif %}
-                    </div>
+                <div class="notify {{ notification.messageType }}">
+                    <p><i class="fa fa-info-circle"></i> {{ notification.message }}</p>
+                    {% if notification.action %}
+                        <a class="btn btn-outline-white" href="{{ notification.action }}"
+                           role="button">Proceed</a>
+                    {% endif %}
                 </div>
             {% endif %}
             {% block body %}{% endblock %}

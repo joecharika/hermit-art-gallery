@@ -5,7 +5,7 @@
     "username": "starligh_gallery",
     "password": "Q#hG]]?Z=KNQ"
   },
-  "debug": false,
+  "debug": true,
   "limitRequests": false,
   "gzip" : true,
   "errors": {
