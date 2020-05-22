@@ -13,22 +13,39 @@
     </section>
     {# End page-banner section #}
 
-    {# about-section
-        ================================================== #}
+    {# about-section ================================================== #}
     <section class="about-section">
         <div class="container-fluid">
             <div class="about-box">
                 <div class="image-holder">
-                    <img src="/assets/upload/others/ab3.jpg" alt="">
+                    <img src="/assets/upload/others/ab3.jpg" class="mb-2" alt="">
+                    <h2>Connect with us</h2>
+                    <span><a class="btn btn-sm btn-dark mr-sm-1 mb-sm-1" href="tel://"><i class="fa fa-phone"></i> +278364376476</a></span>
+                    <span><a class="btn btn-sm btn-primary mr-sm-1 mb-sm-1" href="tel://"><i class="fa fa-envelope"></i> mail@mail.com</a></span>
+                    <span><a class="btn btn-sm btn-facebook mr-sm-1 mb-sm-1" href="tel://"><i class="fa fa-facebook"></i> Like on facebook</a></span>
+                    <span><a class="btn btn-sm btn-twitter mr-sm-1 mb-sm-1" href="tel://"><i class="fa fa-twitter"></i>Follow on twitter</a></span>
                 </div>
                 <div class="content-holder">
-                    <h2><i class="fa fa-phone"></i> Give us a call</h2>
-                    <span><a class="text-muted" href="tel://">+278364376476</a></span>
-
-                    <h2><i class="fa fa-comment"></i> Send an message</h2>
-                    <span><a class="text-muted" href="tel://"><i class="fa fa-envelope"></i> mail@mail.com</a></span>
-                    <span><a class="text-muted" href="tel://"><i class="fa fa-facebook"></i> Like on facebook</a></span>
-                    <span><a class="text-muted" href="tel://"><i class="fa fa-twitter"></i>Follow on twitter</a></span>
+                    <h2>Send a message</h2>
+                    <form method="post" class="my-1" action="">
+                        <div class="form-group">
+                            <label for="name">Your name</label>
+                            <input required id="name" class="form-control" name="name" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your email</label>
+                            <input required id="email" class="form-control" name="email" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input required id="subject" value="{{ quote ? 'Quotation' : '' }}" class="form-control" name="subject" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea required class="form-control" id="message" name="message">{{ quote ? ('Quotation for artwork titled "' ~ quote ~ '"') : '' }}</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send mail</button>
+                    </form>
                 </div>
             </div>
         </div>

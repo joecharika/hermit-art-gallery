@@ -27,7 +27,7 @@ use Hyper\Reflection\Annotation;
 abstract class Validator
 {
     #region Validator Core
-    public static function validate(object $object): object
+    public static function validate(\object $object): \object
     {
         $class = strtolower(get_class($object));
         $errors = [];

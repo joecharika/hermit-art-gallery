@@ -54,13 +54,13 @@ namespace Models {
              */
             $image;
 
-            public function __set($name, $value)
-            {
-                try {
-                    $this->$name = $name == 'datePainted' ? new DateTime($value) : $value;
-                } catch (Exception $e) {
-                    $this->$name = $value;
-                }
+        public function __set($name, $value)
+        {
+            try {
+                $this->$name = $name == 'datePainted' ? new DateTime($value) : $value;
+            } catch (Exception $e) {
+                $this->$name = $value;
             }
+        }
     }
 }

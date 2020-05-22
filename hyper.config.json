@@ -5,6 +5,17 @@
     "username": "starligh_gallery",
     "password": "Q#hG]]?Z=KNQ"
   },
+  "mail": {
+    "smtp" : {
+      "configured" : false,
+      "host": "mail.essentialcarhire.co.zw",
+      "port" : 587,
+      "username": "noreply@essentialcarhire.co.zw",
+      "password"  : "P@$$word123",
+      "secure" : "tls",
+      "recipients": []
+    }
+  },
   "debug": false,
   "limitRequests": false,
   "gzip" : true,

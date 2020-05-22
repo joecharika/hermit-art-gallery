@@ -11,6 +11,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/hyper/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/hyper/doc" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/hyper/src" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpmailer/phpmailer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/extensions" />

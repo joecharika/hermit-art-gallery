@@ -27,9 +27,15 @@
                                                 <img src="{{ optImg(img.image, 90) }}" alt="{{ img.title }}">
                                             </div>
                                             <figcaption>
-                                                <h5 title="{{ img.title }}" class="text-truncate"><b>{{ img.title }}</b></h5>
+                                                <h5 title="{{ img.title }}" class="text-truncate"><b>{{ img.title }}</b>
+                                                </h5>
                                                 <span>
-                                                    <small class="text-muted">Price:&nbsp;</small>{{ img.price ? ('$' ~ img.price) : 'Free'  }}
+                                                    <small class="text-muted">Price:&nbsp;</small>
+                                                    {% if img.price %}
+                                                        ${{ img.price }}
+                                                    {% else %}
+                                                        <a href="/home/contact-us?quote={{ img.title }}">Quote</a>
+                                                    {% endif %}
                                                 </span><br>
                                                 <span>
                                                     <small class="text-muted">Status:&nbsp;</small>{{ img.state }}
@@ -50,7 +56,8 @@
                                     <div class="col-md-12">
                                         <img class="project-edit-img" src="/assets/images/placeholder.png" alt="">
                                         <h5>No images</h5>
-                                        <p>No artwork has been associated with this project just yet, please check again in
+                                        <p>No artwork has been associated with this project just yet, please check again
+                                            in
                                             a moment.</p>
                                     </div>
                                 {% endfor %}
@@ -99,7 +106,7 @@
                                     <div class="form-group">
                                         <label for="date">Date painted</label>
                                         <input id="date" class="form-control" type="date"
-                                               value="{{ image.datePainted|date('yyyy-MM-dd') }}" name="datePainted"
+                                               value="{{ image.datePainted ? (image.datePainted|date('Y-m-d')) : '' }}" name="datePainted"
                                                placeholder="Date">
                                     </div>
                                     <div class="form-group">

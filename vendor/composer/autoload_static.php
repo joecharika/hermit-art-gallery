@@ -22,6 +22,10 @@ class ComposerStaticInit51997ff495f7e81e404fa0a6e8054108
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
         'M' => 
         array (
             'Models\\' => 7,
@@ -57,6 +61,10 @@ class ComposerStaticInit51997ff495f7e81e404fa0a6e8054108
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Models\\' => 
         array (
@@ -179,9 +187,15 @@ class ComposerStaticInit51997ff495f7e81e404fa0a6e8054108
         'Hyper\\Utils\\Generator' => __DIR__ . '/..' . '/hyper/src/Utils/Generator.php',
         'Hyper\\Utils\\Html' => __DIR__ . '/..' . '/hyper/src/Utils/Html.php',
         'Hyper\\Utils\\UserBrowser' => __DIR__ . '/..' . '/hyper/src/Utils/UserBrowser.php',
+        'Models\\MailMessage' => __DIR__ . '/../..' . '/models/MailMessage.php',
         'Models\\Project' => __DIR__ . '/../..' . '/models/Project.php',
         'Models\\ProjectImage' => __DIR__ . '/../..' . '/models/ProjectImage.php',
         'Models\\User' => __DIR__ . '/../..' . '/models/User.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
         'Symfony\\Polyfill\\Ctype\\Ctype' => __DIR__ . '/..' . '/symfony/polyfill-ctype/Ctype.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'Twig\\Cache\\CacheInterface' => __DIR__ . '/..' . '/twig/twig/src/Cache/CacheInterface.php',

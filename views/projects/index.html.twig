@@ -33,7 +33,7 @@
 			{% endif %}
 
 			<div class="portfolio-box iso-call colum-3 no-space">
-				{% for project in model %}
+				{% for project in model|reverse %}
 					<div class="item project-post lifestyle photography">
 						<div class="project-gal">
 							<img src="{{ optImg(project.projectImages[0].image ?? '/assets/images/placeholder.png' , 70) }}" alt="">

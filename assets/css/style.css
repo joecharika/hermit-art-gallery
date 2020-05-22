@@ -1,7 +1,100 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900|Raleway:300,400,400i,500,600,700");
-header {
-  box-shadow: 0 16px 16px rgba(0, 0, 0, 0.05);
+.btn-outline-white {
+  border: white 1px solid;
+  color: white;
+}
+
+.btn-outline-white:hover {
+  background-color: white;
+}
+
+.btn-primary {
+  border: #c4ac7a solid 1px;
+  background-color: #ccb78c;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #bca169;
+  color: white;
+}
+
+.btn-dark {
+  border: #262626 solid 1px;
+  background-color: #333;
+  color: white;
+}
+
+.btn-dark:hover {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.btn-white {
+  border: #f2f2f2 solid 1px;
+  background-color: #fff;
+  color: black;
+}
+
+.btn-white:hover {
+  background-color: #e6e6e6;
+  color: black;
+}
+
+.btn-facebook {
+  border: #00376f solid 1px;
+  background-color: #004488;
+  color: white;
+}
+
+.btn-facebook:hover {
+  background-color: #002b55;
+  color: white;
+}
+
+.btn-twitter {
+  border: #3eadff solid 1px;
+  background-color: #57b8ff;
+  color: white;
+}
+
+.btn-twitter:hover {
+  background-color: #24a2ff;
+  color: white;
+}
+
+.btn-success {
+  border: #5d961c solid 1px;
+  background-color: #6aab20;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #4f8018;
+  color: white;
+}
+
+.btn-danger {
+  border: #c02625 solid 1px;
+  background-color: #d52a29;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #aa2221;
+  color: white;
+}
+
+.btn-warning {
+  border: #d0a204 solid 1px;
+  background-color: #e9b505;
+  color: white;
+}
+
+.btn-warning:hover {
+  background-color: #b78e04;
+  color: white;
 }
 
 .reset-elem, header nav.nav-menu ul.menu-list, div.dropdown ul.drop-list, section.page-banner-section ul.post-meta, .switcher-box ul.switcher-list, div#fixed-sidebar div.instagram-widget ul, div#fixed-sidebar ul.contact-info, div#fixed-sidebar ul.social-icons, ul.filter, .blog-page-section .blog-page-box .blog-post .post-content ul.post-meta, .pagination-box ul.page-list, .sidebar .category-widget ul, .sidebar .archive-widget ul, .sidebar .popular-widget ul.popular-list, .sidebar .tags-widget ul.tags-list, section.testimonial-section .testimonial-box ul.bxslider, section.clients-section .clients-box ul.client-list, .single-post-box ul.cat-tags, .single-post-box ul.share-post, div.comments-box ul.comments-list, section.single-project-section .single-content .project-content ul.social-icons, section.single-project-section .single-content .project-content ul.detail-list, .shop-section .shop-box .product-visibility .other-products, .shop-section .shop-box .product-details .prod-list ul, .product-reviews ul, .billing-box ul.pay-list, .shopping-popup ul.shopping-list {
@@ -63,6 +156,7 @@ header {
 /* =  Header
  *------------------------------------------------- */
 header {
+  box-shadow: 0 16px 16px rgba(0, 0, 0, 0.05);
   width: 290px;
   position: fixed;
   top: 0;
@@ -78,22 +172,21 @@ header {
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
 }
-
 header .logo {
   text-align: center;
 }
-
+header .logo .logo-img {
+  width: 60%;
+}
 header nav.nav-menu {
   padding: 20px 0px;
   width: 100%;
 }
-
 header nav.nav-menu ul.menu-list > li {
   display: block;
   position: relative;
   padding: 0 70px;
 }
-
 header nav.nav-menu ul.menu-list > li > a {
   display: block;
   padding: 15px 0;
@@ -102,13 +195,11 @@ header nav.nav-menu ul.menu-list > li > a {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
 }
-
 header nav.nav-menu ul.menu-list > li > a i {
   font-size: 12px;
   line-height: 22px;
   float: right;
 }
-
 header nav.nav-menu ul.menu-list > li > a:before {
   display: inline-block;
   float: left;
@@ -123,32 +214,16 @@ header nav.nav-menu ul.menu-list > li > a:before {
   -o-transition: all 0.3s ease-in-out;
   background: #ccb78d;
 }
-
-header nav.nav-menu ul.menu-list > li a.active, header nav.nav-menu ul.menu-list > li a:hover {
+header nav.nav-menu ul.menu-list > li a.active, header header nav.nav-menu ul.menu-list > li a:hover {
   color: #ccb78d;
 }
-
-header nav.nav-menu ul.menu-list > li a.active:before, header nav.nav-menu ul.menu-list > li a:hover:before {
+header nav.nav-menu ul.menu-list > li a.active:before, header header nav.nav-menu ul.menu-list > li a:hover:before {
   width: 40px;
 }
-
 header p {
   text-align: center;
 }
-
 header p span {
-  color: #ccb78d;
-}
-
-body.dark header {
-  background: #333333;
-}
-
-body.dark header nav.nav-menu ul.menu-list li a {
-  color: #cccccc;
-}
-
-body.dark header nav.nav-menu ul.menu-list li a.active, body.dark header nav.nav-menu ul.menu-list li a:hover {
   color: #ccb78d;
 }
 
@@ -3685,20 +3760,21 @@ section.shopping-cart-section {
 .project-img .img:hover img {
   height: 400px;
   object-fit: contain;
+  object-position: top;
   filter: drop-shadow(0 16px 16px rgba(0, 0, 0, 0.05));
 }
 .project-img .img:after {
   z-index: 1;
   display: block;
   position: absolute;
-  content: " " !important;
+  content: " ";
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: transparent;
   margin: 0;
-  height: auto !important;
+  height: auto;
 }
 .project-img .img img {
   width: 100%;
@@ -3732,36 +3808,22 @@ section.shopping-cart-section {
   justify-content: space-between;
   align-items: center;
 }
-
 .notify.success {
   background-color: #6aab20;
 }
-
 .notify.danger {
   background-color: #d52a29;
 }
-
 .notify.warning {
   background-color: #e9b505;
 }
-
 .notify p {
   margin: 0;
   color: #fff;
   font-size: 16px;
 }
-
 .notify p .fa {
   margin: 0 0.5em 0 0;
-}
-
-.btn-outline-white {
-  border: white 1px solid;
-  color: white;
-}
-
-.btn-outline-white:hover {
-  background-color: white;
 }
 
 .project-edit-img {
@@ -3882,6 +3944,34 @@ section.shopping-cart-section {
 
 .m-4 {
   margin: 4em;
+}
+
+.mt-sm-1 {
+  margin-top: 0.5em;
+}
+
+.mb-sm-1 {
+  margin-bottom: 0.5em;
+}
+
+.mr-sm-1 {
+  margin-right: 0.5em;
+}
+
+.ml-sm-1 {
+  margin-left: 0.5em;
+}
+
+.mx-sm-1 {
+  margin: 0 0.5em;
+}
+
+.my-sm-1 {
+  margin: 0.5em 0;
+}
+
+.m-sm-1 {
+  margin: 0.5em;
 }
 
 .text-truncate {

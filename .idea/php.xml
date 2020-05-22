@@ -11,6 +11,7 @@
       <path value="$PROJECT_DIR$/vendor/hyper/doc" />
       <path value="$PROJECT_DIR$/vendor/hyper/src" />
       <path value="$PROJECT_DIR$/vendor/hyper/.idea" />
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7" />

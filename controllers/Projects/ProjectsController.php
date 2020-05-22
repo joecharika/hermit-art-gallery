@@ -84,24 +84,6 @@ namespace Controllers {
         /**
          * @action
          * @param Request $request
-         * @param null $model
-         * @param null $message
-         * @return string
-         */
-        public function delete(Request $request, $model = null, $message = null)
-        {
-            $model = $model ?? $request->fromParam();
-            return $this->view(
-                'projects.index',
-                $this->db->all()->lists([ProjectImage::class])->toList(),
-                $message ?? new HttpMessage("Are you sure you want to delete project, $model->title", 'warning',
-                    "/projects/delete-confirmed/$model->id")
-            );
-        }
-
-        /**
-         * @action
-         * @param Request $request
          * @return string
          */
         public function deleteConfirmed(Request $request)
@@ -115,6 +97,24 @@ namespace Controllers {
                 $request,
                 $model,
                 $message ?? new HttpMessage('Failed to delete! Try again?', 'warning',
+                    "/projects/delete-confirmed/$model->id")
+            );
+        }
+
+        /**
+         * @action
+         * @param Request $request
+         * @param null $model
+         * @param null $message
+         * @return string
+         */
+        public function delete(Request $request, $model = null, $message = null)
+        {
+            $model = $model ?? $request->fromParam();
+            return $this->view(
+                'projects.index',
+                $this->db->all()->lists([ProjectImage::class])->toList(),
+                $message ?? new HttpMessage("Are you sure you want to delete project, $model->title", 'warning',
                     "/projects/delete-confirmed/$model->id")
             );
         }

@@ -10,7 +10,6 @@ use Hyper\Database\DatabaseContext;
 use Hyper\Http\HttpMessage;
 use Hyper\Http\HttpMessageType;
 use Hyper\Http\Request;
-use Models\Project;
 use Models\User;
 use function Hyper\Database\db;
 

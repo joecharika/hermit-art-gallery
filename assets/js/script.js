@@ -80,6 +80,7 @@ $(document).ready(function ($) {
     });
 
     /* ---------------------------------------------------------------------- */
+
     /*	background dark-ligh toggle
     /* ---------------------------------------------------------------------- */
 
@@ -99,14 +100,22 @@ $(document).ready(function ($) {
     }
 
     function checkTheme() {
+        let $logo = $(".logo-img");
         if (getTheme()) {
             DarkReader.enable({
                 brightness: 100,
                 contrast: 90,
                 sepia: 10
             });
-        } else
+            $logo.css({
+                filter: "invert(.86)"
+            });
+        } else {
             DarkReader.disable();
+            $logo.css({
+                filter: "none"
+            });
+        }
     }
 
     checkTheme();
@@ -115,8 +124,8 @@ $(document).ready(function ($) {
 
     togButton.on('click', function (event) {
         event.preventDefault();
-		setTheme(!getTheme());
-		checkTheme();
+        setTheme(!getTheme());
+        checkTheme();
     });
 
     /* ---------------------------------------------------------------------- */

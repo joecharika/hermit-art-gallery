@@ -50,6 +50,18 @@ namespace Controllers {
          * @param Request $request
          * @return string
          */
+        public function postCreate(Request $request)
+        {
+            $this->redirects['create'] = "/projects/details/{$request->data->projectId}";
+
+            return parent::postCreate($request);
+        }
+
+        /**
+         * @action
+         * @param Request $request
+         * @return string
+         */
         public function postEdit(Request $request)
         {
             $model = $this->db->first('id', $request->data->id);
@@ -57,26 +69,6 @@ namespace Controllers {
             $this->redirects['edit'] = "/projects/details/$model->projectId";
 
             return parent::postEdit($request);
-        }
-
-
-        /**
-         * @action
-         * @param Request $request
-         * @param null|ProjectImage $model
-         * @param null $message
-         * @return string
-         */
-        public function delete(Request $request, $model = null, $message = null)
-        {
-            $model = $model ?? $request->fromParam();
-
-            return $this->view(
-                'projects.read',
-                db(Project::class)->first('id', $model->projectId, SqlOperator::equal, null, [ProjectImage::class]),
-                $message ?? new HttpMessage("Are you sure you want to delete artwork, $model->title", 'warning',
-                    "/projectImages/delete-confirmed/$model->id")
-            );
         }
 
         /**
@@ -99,6 +91,25 @@ namespace Controllers {
                 $request,
                 $model,
                 $message ?? new HttpMessage('Failed to delete! Try again?', 'warning',
+                    "/projectImages/delete-confirmed/$model->id")
+            );
+        }
+
+        /**
+         * @action
+         * @param Request $request
+         * @param null|ProjectImage $model
+         * @param null $message
+         * @return string
+         */
+        public function delete(Request $request, $model = null, $message = null)
+        {
+            $model = $model ?? $request->fromParam();
+
+            return $this->view(
+                'projects.read',
+                db(Project::class)->first('id', $model->projectId, SqlOperator::equal, null, [ProjectImage::class]),
+                $message ?? new HttpMessage("Are you sure you want to delete artwork, $model->title", 'warning',
                     "/projectImages/delete-confirmed/$model->id")
             );
         }

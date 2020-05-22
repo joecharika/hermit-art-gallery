@@ -1,0 +1,31 @@
+@import "variables";
+
+.btn-outline-white {
+  border: white 1px solid;
+  color: white;
+}
+
+.btn-outline-white:hover {
+  background-color: white;
+}
+
+@each $color, $value in $colors {
+  .btn-#{$color} {
+    border: darken($value, 5%) solid 1px;
+    background-color: $value;
+    @if ($color == "white") {
+      color: black;
+    } @else {
+      color: white;
+    };
+  }
+
+  .btn-#{$color}:hover {
+    background-color: darken($value, 10%);
+    @if ($color == "white") {
+      color: black;
+    } @else {
+      color: white;
+    };
+  }
+}
